@@ -4,6 +4,7 @@ import { check } from 'express-validator';
 import {
     publicationGet,
     publicationPost,
+    AddCommentPut
 } from './publication.controller.js';
 
 import { validateFields } from '../middlewares/validate-fields.js';
@@ -25,5 +26,14 @@ router.post(
         check("date", "Date is required").not().isEmpty(),
         validateFields
     ], publicationPost);
+
+router.put(
+    "/addComment/:id",
+    [
+        check("id", "Id is required").not().isEmpty(),
+        check("commentUser", "The name of the user is required").not().isEmpty(),
+        check("commentMain", "The commentMain is required").not().isEmpty(),
+        validateFields
+    ], AddCommentPut);
 
 export default router;

@@ -29,3 +29,15 @@ export const publicationPost = async (req, res) => {
 
     res.status(200).json({ msg: "Publication created", publication });
 }
+
+export const AddCommentPut = async (req, res) => {
+    const { id} = req.params;
+
+    const { _id, author, title, description, tools, descriptionFuntion, image, link, date, ...rest} = req.body;
+    const currentDate = new Date();
+    const addComment = { ...rest};
+    addComment.dateComment = currentDate;
+
+    await Publication.findByIdAndUpdate(id, { $push: { comments: addComment } });
+    res.status(200).json({ msg: "Comment added" });
+}
