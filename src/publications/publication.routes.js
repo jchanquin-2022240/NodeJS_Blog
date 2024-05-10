@@ -22,6 +22,7 @@ router.post(
         check("descriptionFuntion", "DescriptionFuntion is required").not().isEmpty(),
         check("image", "Image is required").not().isEmpty(),
         check("link", "Link is required").not().isEmpty(),
+        check("date", "Date is required").not().isEmpty(),
         validateFields
     ], publicationPost);
 

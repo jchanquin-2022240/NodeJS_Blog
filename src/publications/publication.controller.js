@@ -12,7 +12,7 @@ export const publicationGet = async (req, res) => {
 }
 
 export const publicationPost = async (req, res) => {
-    const { author, title, description, tools, descriptionFuntion, image, link } = req.body;
+    const { author, title, description, tools, descriptionFuntion, image, link, date } = req.body;
 
     const publication = new Publication({
         author,
@@ -21,7 +21,8 @@ export const publicationPost = async (req, res) => {
         tools,
         descriptionFuntion,
         image,
-        link
+        link,
+        date
     });
 
     await publication.save();

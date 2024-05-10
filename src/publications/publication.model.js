@@ -23,16 +23,16 @@ const PublicationSchema = mongoose.Schema({
         required: [true, "Post descriptionFuntion is required"]
     },
     image: {
-        type: URL,
-        required: [true, "Post image is required"]
+        type: String,
+        required: true
     },
     link: {
-        type: URL,
-        required: [true, "Post URL is required"]
+        type: String,
+        required: true
     },
     date: {
         type: Date,
-        default: Date.now
+        // default: Date.now
     },
     comments: [{
         commentUser: {
