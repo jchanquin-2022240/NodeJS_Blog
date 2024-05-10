@@ -30,6 +30,18 @@ const PublicationSchema = mongoose.Schema({
         type: URL,
         required: [true, "Post URL is required"]
     },
+    date: {
+        type: Date,
+        default: Date.now
+    },
+    comments: [{
+        commentUser: {
+            type: String
+        },
+        commentMain: {
+            type: String
+        }
+    }],
     publicationStatus: {
         type: Boolean,
         default: true
