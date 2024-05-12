@@ -4,6 +4,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { dbConnection } from './mongo.js';
+import { projects } from '../src/publications/publication.controller.js';
 import publicationRoutes from '../src/publications/publication.routes.js';
 class Server {
     constructor() {
@@ -18,6 +19,7 @@ class Server {
 
     async conectarDB() {
         await dbConnection();
+        await projects();
     }
 
     middlewares() {

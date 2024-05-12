@@ -1,5 +1,28 @@
 import Publication from './publication.model.js';
 
+export const postGestorEmpresas = async (res) => {
+    const postDefault = new Publication({
+        author: "Rodrigo Chanquín",
+        title: "Gestor de Empresas",
+        description: "Aplicación web que permite a los usuarios llevar un control de sus empresas, empleados, productos y ventas.",
+        tools: "NodeJs, npm, thunder",
+        descriptionFuntion: "Permite a los usuarios llevar un control de sus empresas, empleados, productos y ventas.",
+        image: "https://www.muypymes.com/wp-content/uploads/2015/06/gestor.jpg",
+        link: "https://github.com/jchanquin-2022240/T_gestor_empresas.git"
+    })
+    await postDefault.save();
+}
+
+export const projects = async (res) => {
+    const publications = await Publication.find();
+
+    if (publications.length === 0) {
+        postGestorEmpresas(res);
+    } else {
+        console.log('Created default post!!!');
+    }
+}
+
 export const publicationGet = async (req, res) => {
     const query = { publicationStatus: true };
 
