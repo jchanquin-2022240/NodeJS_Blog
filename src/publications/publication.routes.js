@@ -3,7 +3,7 @@ import { check } from 'express-validator';
 
 import {
     publicationGet,
-    //publicationPost,
+    publicationPost,
     AddCommentPut
 } from './publication.controller.js';
 
@@ -13,19 +13,19 @@ const router = Router();
 
 router.get('/posts', publicationGet);
 
-// router.post(
-//     "/add",
-//     [
-//         check("author", "Author is required").not().isEmpty(),
-//         check("title", "Title is required").not().isEmpty(),
-//         check("description", "Description is required").not().isEmpty(),
-//         check("tools", "Tools is required").not().isEmpty(),
-//         check("descriptionFuntion", "DescriptionFuntion is required").not().isEmpty(),
-//         check("image", "Image is required").not().isEmpty(),
-//         check("link", "Link is required").not().isEmpty(),
-//         check("date", "Date is required").not().isEmpty(),
-//         validateFields
-//     ], publicationPost);
+router.post(
+    "/add",
+    [
+        check("author", "Author is required").not().isEmpty(),
+        check("title", "Title is required").not().isEmpty(),
+        check("description", "Description is required").not().isEmpty(),
+        check("tools", "Tools is required").not().isEmpty(),
+        check("descriptionFuntion", "DescriptionFuntion is required").not().isEmpty(),
+        check("image", "Image is required").not().isEmpty(),
+        check("link", "Link is required").not().isEmpty(),
+        check("date", "Date is required").not().isEmpty(),
+        validateFields
+    ], publicationPost);
 
 router.put(
     "/addComment/:id",

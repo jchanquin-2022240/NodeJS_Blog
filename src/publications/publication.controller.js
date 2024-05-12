@@ -8,7 +8,8 @@ export const postGestorEmpresas = async (res) => {
         tools: "NodeJs, npm, thunder",
         descriptionFuntion: "Permite a los usuarios llevar un control de sus empresas, empleados, productos y ventas.",
         image: "https://www.muypymes.com/wp-content/uploads/2015/06/gestor.jpg",
-        link: "https://github.com/jchanquin-2022240/T_gestor_empresas.git"
+        link: "https://github.com/jchanquin-2022240/T_gestor_empresas.git",
+        date: "2021-10-10T00:00:00.000Z"
     })
     await postDefault.save();
 }
@@ -34,24 +35,24 @@ export const publicationGet = async (req, res) => {
     res.status(200).json({ msg: "Publications found", totalPublication, publications });
 }
 
-// export const publicationPost = async (req, res) => {
-//     const { author, title, description, tools, descriptionFuntion, image, link, date } = req.body;
+export const publicationPost = async (req, res) => {
+    const { author, title, description, tools, descriptionFuntion, image, link, date } = req.body;
 
-//     const publication = new Publication({
-//         author,
-//         title,
-//         description,
-//         tools,
-//         descriptionFuntion,
-//         image,
-//         link,
-//         date
-//     });
+    const publication = new Publication({
+        author,
+        title,
+        description,
+        tools,
+        descriptionFuntion,
+        image,
+        link,
+        date
+    });
 
-//     await publication.save();
+    await publication.save();
 
-//     res.status(200).json({ msg: "Publication created", publication });
-// }
+    res.status(200).json({ msg: "Publication created", publication });
+}
 
 export const AddCommentPut = async (req, res) => {
     const { id} = req.params;
