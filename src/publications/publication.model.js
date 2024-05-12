@@ -40,10 +40,6 @@ const PublicationSchema = mongoose.Schema({
         },
         commentMain: {
             type: String
-        },
-        dateComment: {
-            type: Date
-        
         }
     }],
     publicationStatus: {
