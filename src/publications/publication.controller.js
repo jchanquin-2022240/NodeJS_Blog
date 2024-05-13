@@ -56,6 +56,34 @@ export const postControlAcademico = async (res) => {
     await postDefault.save();
 }
 
+export const postAdoptionAnimals = async (res) => {
+    const postDefault = new Publication({
+        author: "Rodrigo Chanquín",
+        title: "Adoption Animals",
+        description: "En ese proyecto se puede adoptar mascotas y se puede ver las mascotas que estan en adopcion",
+        tools: "JavaScript, NodeJS, npm, thunder",
+        descriptionFuntion: "Esta enfocado a la adopcion de mascotas y se puede ver las mascotas que estan en adopcion",
+        image: "https://media.perezlara.com/2021/02/Adopcio%CC%81n-de-mascotas-1.png",
+        link: "https://github.com/jchanquin-2022240/api-2022240.git",
+        date: "2024-05-12"
+    })
+    await postDefault.save();
+}
+
+export const postFinalProject = async (res) => {
+    const postDefault = new Publication({
+        author: "Rodrigo Chanquín",
+        title: "Proyecto Final Bim I",
+        description: "Se basa en un supermercado donde pueden agregar productos y consumirlos por medio de un carrito de compras ",
+        tools: "JavaScript, NodeJS, npm, thunder",
+        descriptionFuntion: "El api esta formada por roles y con validaciones de los mismo, lleva una sección de login y de carrito de compras",
+        image: "https://i.ytimg.com/vi/Lc2FKHXvKXw/maxresdefault.jpg",
+        link: "https://github.com/jchanquin-2022240/T_final_project.git",
+        date: "2024-05-12"
+    })
+    await postDefault.save();
+}
+
 export const projects = async (res) => {
     const publications = await Publication.find();
 
@@ -64,6 +92,8 @@ export const projects = async (res) => {
         postGestorOpiniones(res);
         postSocialTrap(res);
         postControlAcademico(res);
+        postAdoptionAnimals(res);
+        postFinalProject(res);
         console.log('Created default posts!!!');
     } else {
         console.log('Default posts already exist');
