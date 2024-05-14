@@ -4,6 +4,7 @@ import { check } from 'express-validator';
 import {
     publicationGet,
     publicationPost,
+    publicationById,
     AddCommentPut
 } from './publication.controller.js';
 
@@ -12,6 +13,8 @@ import { validateFields } from '../middlewares/validate-fields.js';
 const router = Router();
 
 router.get('/posts', publicationGet);
+
+router.get('/post/:id', publicationById);
 
 router.post(
     "/add",

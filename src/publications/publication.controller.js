@@ -112,6 +112,19 @@ export const publicationGet = async (req, res) => {
     res.status(200).json({ msg: "Publications found", totalPublication, publications });
 }
 
+export const publicationById = async (req, res) => {
+    const { id } = req.params;
+    const publication = await Publication.findById(id);
+
+    if (!publication) {
+        return res.status(404).json({ message: "Publication not found" });
+    } else {
+        res.status(200).json(publication);
+    }
+
+
+}
+
 export const publicationPost = async (req, res) => {
     const { author, title, description, tools, descriptionFuntion, image, link, date } = req.body;
 

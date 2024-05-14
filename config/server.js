@@ -10,7 +10,7 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.publicationPath = '/blog/v1/publication';
+        this.publicationPath = '/blog/v1';
 
         this.conectarDB();
         this.middlewares();
